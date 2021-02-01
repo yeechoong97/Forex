@@ -1,54 +1,30 @@
 @extends('layouts.default')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center vertical-center ">
-        <div class="col-md-8">
-            <div class="card ">
-                <div class="card-header login-center">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+
+<div class="login-clean">
+<form method="POST" action="{{ route('login') }}">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control @error('email') is-invalid @enderror" name="username" required autofocus>
-
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary btn-size">{{ __('Login') }}</button>
-                                <a href="{{ url('/register') }}" class="btn btn-size register-btn">Register</a>
-                            </div>
-                        </div>
-           
-                    </form>
-                </div>
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><span class="fas fa-sign-in-alt"></span></div>
+            <div class="form-group"><input id="username" class="form-control @error('username') is-invalid @enderror" type="text" name="username" placeholder="Username" required autofocus>           
+                 @error('username')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
-        </div>
+            <div class="form-group"><input id="password" class="form-control @error('password') is-invalid @enderror" type="password" name="password" placeholder="Password" required>
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button>
+            <div class="form-group"><a href="{{ url('/register') }}" class="btn btn-register btn-block" type="submit">Register</a>
+        </form>
     </div>
-</div>
+
+
 @endsection

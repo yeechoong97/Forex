@@ -1,246 +1,417 @@
+.fa-times-circle {
+    color: red;
+}
 
-table,th,td{
-    border:1px solid black;
-    border-collapse:collapse;
-    font-size:18px;
-    }
+.fa-check-circle {
+    color: #3a5eff;
+}
 
-    .left-container {
-        float: left;
-        width: 1500px;
-        height: 840px;
-        margin: 10px;
-      }
+.close_position:hover {
+    cursor: pointer;
+}
 
-      .right-container {
-        float: right;
-        width: 280px;
-        height: 840px;
-        margin: 10px;
-      }
+.price-container {
+    position: relative;
+    width: 100%;
+    height: 540px;
+    background: white;
+}
 
-      .chart-container {
-        position: static;
-        width: 1600px;
-        height: 650px;
-        background:  #D7D7D7;
-        color: white;
-      }
+.price-container h6 {
+    padding-top: 10px;
+    color: white;
+    font-family: Lato, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
 
-      .chart-container .chart-tools-div{
-        float:right;
-        width: 1560px;
-        height: 40px;
-        background: white;
-        border: 1px solid black;
-      }
+.price-container .header {
+    text-align: center;
+    background: linear-gradient( #00b4db, #0083b0);
+    border-bottom: 0.2rem solid #e0e0e0;
+}
 
-      .chart-container .drawing-tools-div{
-        float:left;
-        width: 40px;
-        height: 630px;
-        background: white;
-      }
+.price-container .price {
+    width: 90%;
+    height: 16%;
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+}
 
-      .record-container {
-        position: relative;
-        width: 1600px;
-        height: 190px;
-        background: white;
-      }
+.price-container .price .rates {
+    width: 90%;
+    height: 100%;
+    background: white;
+    border-radius: 0.7rem;
+    border: 0.1rem solid #bebebe;
+}
 
-      
-      .account-container {
-        position: relative;
-        width: 280px;
-        height: 300px;
-        background: white;
-        color: white;
-      }
+.price-container .price .rates .header {
+    height: 30%;
+    font-size: 15px;
+    background: whitesmoke;
+    border-bottom: 0.1rem solid #cecece;
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+    text-align: center;
+    font-weight: bold;
+}
 
-      .account-container .temp {
-        position: absolute;
-        bottom: 0;
-        width: 280px;
-        height: 20px;
-        background: #D7D7D7;
-      }
+.price-container .price .rates .rates-container {
+    height: 50%;
+    background: white;
+    border-bottom: 0.1rem solid #cecece;
+}
 
-      .price-container {
-        position: relative;
-        width: 280px;
-        height: 540px;
-        background: white;
-        color: white;
-      }
+.price-container .price .rates .rates-container .sell-rates {
+    float: left;
+    width: 50%;
+    height: 100%;
+    border-right: 0.1rem solid #cecece;
+    padding: 10px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
 
-      .price-container .price{
-        width: 280px;
-        height: 100px;
-        background: white;
-        display: flex;
-        justify-content: center;
-      }
+.price-container .price .rates .rates-container .buy-rates {
+    float: right;
+    width: 50%;
+    height: 100%;
+    padding: 10px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
 
-      .price-container .price .rates{
-        width: 85%;
-        height: 85%;
-        background: white;
-        border:1px solid black;
-        margin-top:3%;
-        
-      }
+.price-container .price .rates .pips {
+    height: 20%;
+    background: whitesmoke;
+    font-size: 12px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    border-bottom-left-radius: 0.6rem;
+    border-bottom-right-radius: 0.6rem;
+}
 
-      .price-container .price .rates .indicator{
-        height:5%;
-        background: greenyellow;
-        border-bottom :1px solid black;      
-      }
+.instrument {
+    margin-right: -4.8px;
+    width: 120px;
+    height: 38px;
+}
 
-      .price-container .price .rates .header{
-        height:25%;
-        font-size:13px;
-        background: whitesmoke;
-        border-bottom :2px solid grey;
-        text-align: center;      
-      }
+.time {
+    width: 120px;
+    height: 38px;
+    text-align: center;
+    color: black;
+    font-size: 18px;
+    float: right;
+}
 
-      .price-container .price .rates .rates-container{
-        height:50%;
-        background:white;
-        border-bottom :1px solid black;
-      }
+.price-container .price .rates .header:hover {
+    cursor: pointer;
+    background: rgb(224, 223, 223);
+}
 
-      .price-container .price .rates .rates-container .sell-rates{
-        float:left;
-        width:50%;
-        height:100%;
-        border-right :1px solid black;
-        padding:10px;
-        color:black;
-        text-align: center; 
-      }
+.mydivheader {
+    padding: 5px;
+    cursor: move;
+    z-index: 10;
+    color: #fff;
+    width: 20px;
+    height: 35px;
+    float: left;
+}
 
-      .price-container .price .rates .rates-container .buy-rates{
-        float:right;
-        width:50%;
-        height:100%;
-        padding:10px;
-        color:black;
-        text-align: center; 
-      }
+.sell_order_button {
+    z-index: 10;
+    color: #fff;
+    width: 120px;
+    height: 35px;
+    float: right;
+    cursor: pointer;
+    background: #ffb9b9;
+    border: 1px solid #ffb9b9;
+}
 
-      .price-container .price .rates .pips{
-        height:20%;
-        background:#e3fffe;
-        font-size: 11px;
-        color:black;
-        text-align: center; 
-      }
+.buy_order_button {
+    z-index: 10;
+    color: #fff;
+    width: 120px;
+    height: 35px;
+    float: right;
+    cursor: pointer;
+    background: #9ecdfc;
+    border: 1px solid #9ecdfc;
+}
 
-      .instrument{
-          margin-right:-4.8px;
-          width: 120px;
-          height:38px;
-      }
+.spread_order_button {
+    z-index: 10;
+    color: #fff;
+    width: 120px;
+    height: 35px;
+    float: right;
+    background-color: #fff;
+}
 
-      .time{
-        width: 120px;
-        height:38px;
-        text-align: center;
-        color: black;
-        font-size:18px;
-        float:right;
-      }
+.spread_order_button span:hover {
+    cursor: default;
+}
 
-      .header {
-        text-align: center;
-        color: black;
-        border-bottom: 2px solid grey;
-      }
-      
-      .mydiv {
-        position: absolute;
-        z-index: 9;
-        text-align: center;
-        width:390px;
-        height:35px;
-        right: 380px;
-        top: 68px;
-      }
-      
-      .mydivheader {
-        padding: 5px;
-        cursor: move;
-        z-index: 10;
-        color: #fff;
-        width:20px;
-        height:35px;
-        float:left;
-      }
+.f_control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    padding-left: 0px;
+    padding-right: 0px;
+    color: #495057;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin-left: 1px;
+}
 
-      .order_button {
-        z-index: 10;
-        color: #fff;
-        width:120px;
-        height:35px;
-        float:left;
-        
-      }
+.sell_order_button .sell_btn,
+.buy_order_button .buy_btn,
+.spread_order_button .spread_btn {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+}
 
-      .order_button .buy_btn{
-        background-color: white;
-        width:120px;
-        height:35px;
-        font-size: 20px;
-        white-space: normal;
-        border:0.5px solid grey;
-      }
+.sell_order_button:hover {
+    background: #fdaeae;
+    /* border: 1px solid #ffb9b9; */
+}
 
-      .span-title-sell {
-        display: block;
-        width: 100px;
-        height:13px;
-        margin:-5px 0px 0px 0px;  
-        word-break: keep-all;
-        text-align: center;
-        color:red;
-        font-size:15px;
-        font-weight: bold;
-      }
+.buy_order_button:hover {
+    background: #8fc4fa;
+    /* border: 1px solid #9ecdfc; */
+}
 
-      .span-title-buy {
-        display: block;
-        width: 100px;
-        height:13px;
-        margin:-5px 0px 0px 0px;  
-        word-break: keep-all;
-        text-align: center;
-        color: #02A7F0;
-        font-size:15px;
-        font-weight: bold;
-      }
+.span-title-sell {
+    display: block;
+    width: 100%;
+    height: 40%;
+    word-break: keep-all;
+    text-align: center;
+    color: red;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Lato, sans-serif;
+}
 
-      .span-title-pips {
-        display: block;
-        width: 100px;
-        height:13px;
-        margin:-5px 0px 0px 0px;  
-        word-break: keep-all;
-        text-align: center;
-        color:#6300BF;
-        font-size:15px;
-        font-weight: bold;
-      }
+.span-title-buy {
+    display: block;
+    width: 100%;
+    height: 40%;
+    word-break: keep-all;
+    text-align: center;
+    color: #005acf;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Lato, sans-serif;
+}
 
-      .span-data {
-        display: block;
-        width: 100px;
-        height:13px;
-        margin:4px 0px -1px 0px;  
-        text-align: center;
-        font-size:12px;
-        color:black;
-      }
+.span-title-spread {
+    display: block;
+    width: 100%;
+    height: 40%;
+    word-break: keep-all;
+    text-align: center;
+    color: #6300BF;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Lato, sans-serif;
+}
 
+.span-data {
+    display: block;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+}
 
+.question-btn {
+    border: none;
+    color: black;
+    height: 38px;
+    width: 40px;
+    padding: 0px 0px 0px 10px;
+    font-size: 27px;
+    cursor: pointer;
+    background: #f1f7fc;
+    border-radius: 30rem;
+    float: right;
+}
+
+.fa-question-circle {
+    cursor: pointer;
+}
+
+.account {
+    margin-top: 5%;
+}
+
+.account-table .table {
+    margin-bottom: 0px;
+}
+
+.account-table .table th {
+    text-align: center;
+    font-size: 18px;
+    padding: 0.5rem;
+    background: linear-gradient( #00b4db, #0083b0);
+    color: white;
+}
+
+.account-table .table td {
+    font-size: 15px;
+    padding: 0.5rem;
+    width: 50%;
+}
+
+.account-table .table tr td:first-child {
+    font-weight: bold;
+    text-align: right;
+}
+
+.account-section {
+    margin-bottom: 350px;
+    margin-left: 0px;
+    margin-top: 0px;
+}
+
+.price-section {
+    margin-bottom: 0px;
+    height: 540px;
+    margin-left: 0px;
+    margin-top: -315px;
+}
+
+.order {
+    margin-top: 1.5%;
+}
+
+.order .order-customization {
+    width: 98%;
+    height: 200px;
+}
+
+.order-table .table {
+    margin-bottom: 0px;
+    height: 50%;
+}
+
+.order-table .table tbody {
+    height: 150px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.order-table .table th {
+    text-align: center;
+    font-size: 17px;
+    padding: 0.5rem;
+    color: white;
+    background: linear-gradient(#00b4db, #0083b0);
+}
+
+.order-table .table tbody td {
+    font-size: 15px;
+    padding: 0.5rem;
+    text-align: center;
+    color: black;
+    background: white;
+}
+
+.order-table .table-fixed thead,
+.order-table .table-fixed tbody,
+.order-table .table-fixed tr,
+.order-table .table-fixed td,
+.order-table .table-fixed th {
+    display: block;
+}
+
+.order-table .table-fixed tbody td,
+.order-table .table-fixed tbody th,
+.order-table .table-fixed thead>tr>th {
+    float: left;
+    position: relative;
+}
+
+.order-section {
+    height: 225px;
+    max-height: 225px;
+    width: 1000px;
+}
+
+.lower-container {
+    height: 225px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.upper-container {
+    margin-top: 110px;
+    height: 580px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.upper-row-container {
+    height: 635px;
+}
+
+.lower-row-container {
+    height: 230px;
+}
+
+.chart-section {
+    height: 600px;
+    min-height: 600px;
+    width: 1000px;
+}
+
+.chart-section-container {
+    width: 100%;
+    height: 88%;
+    margin-top: 1%
+}
+
+.chart-container-btn {
+    height: 6%;
+    width: 100%;
+    margin-top: 1%;
+}
+
+.chart-container-btn .form-control {
+    float: left;
+}
+
+.chart-container-btn .reset-btn {
+    margin-left: 0.5px;
+}
+
+.chart-error-label {
+    font-size: 12px;
+    display: table-cell;
+    text-align: center;
+    width: 50%;
+    padding: 0px 10px 0px 0px;
+    color: red;
+}
+
+.chart-align-btn {
+    padding: 1rem 0rem 0rem 0rem;
+}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Account;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -51,8 +52,8 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'username' => 'required|string|max:20|unique:users',
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:12',
+            'name' => 'required|string|max:50',
+            'phone' => 'required|min:10|max:11',
             'email' => 'required|string|email|max:25|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -66,7 +67,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $last_record_id = User::latest()->first();
+        if(!$last_record_id){
+            $new_user_id = "EST1" ;
+        } 
+        else{
+            $new_user_id = "EST" . ($last_record_id->id + 1);
+        }
+
+        $account = new Account();
+        $account->user_id = $new_user_id;
+        $account->balance = 50000.00;
+        $account->margin = 50000.00;
+        $account->margin_used = 0.00;
+        $account->leverage = "30 : 1" ;
+        $account->save();
+
         return User::create([
+            'user_id' => $new_user_id,
             'name' => $data['name'],
             'phone' => $data['phone'],
             'username' => $data['username'],
@@ -74,4 +92,6 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
 }
