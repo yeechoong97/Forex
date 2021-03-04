@@ -36,7 +36,7 @@ class OrderController extends Controller
 		->where('orders.user_id',$user->user_id)
 		->join('trades', 'orders.ticketID', '=', 'trades.ticketID')
 		->select('orders.ticketID','orders.pair','trades.profit','trades.created_at')
-		->orderby('created_at','desc')
+		->orderby('trades.created_at','desc')
         ->get();
         if($trades->isNotEmpty())
         {
@@ -127,7 +127,7 @@ class OrderController extends Controller
 		->where('orders.user_id',$user->user_id)
 		->join('trades', 'orders.ticketID', '=', 'trades.ticketID')
 		->select('orders.ticketID','orders.pair','trades.profit','trades.created_at')
-		->orderby('created_at','desc')
+		->orderby('trades.created_at','desc')
         ->get();
 
         $arrayResult=[];
@@ -230,7 +230,7 @@ class OrderController extends Controller
 		->where('orders.user_id',$id)
 		->join('trades', 'orders.ticketID', '=', 'trades.ticketID')
 		->select('orders.user_id','orders.ticketID','orders.pair','orders.type','orders.entry_price','trades.units','trades.exit_price','trades.cost','trades.profit','trades.created_at')
-		->orderby('created_at','desc')
+		->orderby('trades.created_at','desc')
         ->paginate(8);
         
         return view('order.order-history',[

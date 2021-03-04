@@ -9,7 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.bundle.min.js"></script>
-<script src="https://shielded-tor-33805.herokuapp.com/socket.io/socket.io.js"></script>
+<script src="https://chatnodejs-8msfb.ondigitalocean.app/socket.io/socket.io.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 <link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs-ltr.css" rel="stylesheet">
 <link href="https://cdn.bootcdn.net/ajax/libs/intro.js/3.2.1/introjs-ltr.min.css" rel="stylesheet">

@@ -24,7 +24,7 @@ function searchForum() {
     let forumObject = { search: searchContent, tag: tagValue, filter: forumFilter };
     $.ajax({
         type: 'PATCH',
-        url: 'forum/fetch',
+        url: '/forum/fetch',
         data: {
             _token: token,
             data: forumObject,

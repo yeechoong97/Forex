@@ -257,8 +257,18 @@ appendTempData(arrayInstrument);
 
 //Plot Chart
 const token = $('meta[name="csrf-token"]').attr('content');
-var mapping,secondPlot,chartStreaming;;
-let chartData = `{!!$data!!}`;
+var mapping,secondPlot,chartStreaming;
+let chartData = [];
+
+var tempChartData = "{{$data}}";
+var tempChartArray = tempChartData.split(",");
+for(var i = 0;i<tempChartArray.length;i++)
+{
+    resultArray = [tempChartArray[i],parseFloat(tempChartArray[i+1]),parseFloat(tempChartArray[i+2]),parseFloat(tempChartArray[i+3]),parseFloat(tempChartArray[i+4]),parseInt(tempChartArray[i+5])];
+    chartData.push(resultArray);
+    i += 5;
+}
+
 var chart = anychart.stock();
 var plot = chart.plot(0);
 var dataTable = anychart.data.table();
@@ -322,7 +332,7 @@ anychart.onDocumentReady(function ()
     chart.scroller().candlestick(mapping);
     chart.crosshair().displayMode("float");
     chart.container('container');
-    chart.draw();
+    chart.draw(true);
 
     chart.listen("annotationDrawingFinish", function(){
     document.getElementById("typeSelect").value = "default";

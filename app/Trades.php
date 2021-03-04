@@ -15,6 +15,6 @@ class Trades extends Model
     ];
     
     public function order(){
-        return $this->belongsTo(Order::class,'ticketID');
+        return $this->belongsTo(Order::class,'ticketID','ticketID');
     }
 }

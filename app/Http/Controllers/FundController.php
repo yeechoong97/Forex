@@ -24,7 +24,6 @@ class FundController extends Controller
         $id = Auth::user()->user_id;
         $account = Account::with(['order' => function($query){
                    $query->where('status',0);}])->with('user')->where('user_id',$id)->first();
-
         return view('funds.index',[
             'account' => $account,
         ]);

@@ -1,4 +1,4 @@
-    var socketIO = io('shielded-tor-33805.herokuapp.com', {
+    var socketIO = io('chatnodejs-8msfb.ondigitalocean.app/', {
         transports: ['websocket'],
         upgrade: false
     });

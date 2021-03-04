@@ -25,4 +25,5 @@ class Account extends Model
     public function order(){
         return $this->hasMany(Order::class,'user_id','user_id');
     }
+
 }

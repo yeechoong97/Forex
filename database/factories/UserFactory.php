@@ -6,6 +6,7 @@ use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -19,10 +20,13 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
+        'user_id' => 'EST'.$faker->randomDigit,
         'name' => $faker->name,
+        'username' => $faker->firstName(),
+        'phone' => '0123456789',
+        'avatar' => $faker->randomElement(["https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-1.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-2.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-3.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-4.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-5.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-6.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-7.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-8.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-9.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-10.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037856/Avatar/Avatar-11.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037856/Avatar/Avatar-12.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037856/Avatar/Avatar-13.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037856/Avatar/Avatar-14.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-15.png","https://res.cloudinary.com/fyp202105/image/upload/v1614037855/Avatar/Avatar-16.png"]),
         'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        'tutorial' => $faker->randomElement([1,0]),
+        'password' => Str::random(10)
     ];
 });

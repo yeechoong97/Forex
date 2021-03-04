@@ -53,19 +53,20 @@ class MainController extends Controller
         curl_close($curl);       
 
         //Pass the EURUSD data from server to front end
-        $data = "";
         $parseResponse = json_decode($response,true);
-   
+        $data = "";
         foreach($parseResponse['candles'] as $pResponse)
         {
             $tempDate = substr($pResponse['time'],0,-7);
             $tempDate = $tempDate."Z";
             $myDate = strtotime($tempDate);
-            $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
+            if($data=="")
+                $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."";
+            else
+                $tempResult = ",".$myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."";
             $data = $data . $tempResult;
         }
         $instrument = $parseResponse['instrument'];
-
         $url = "https://api-fxpractice.oanda.com/v3/accounts/101-011-15419455-001/pricing?instruments=EUR_USD%2CAUD_USD%2CGBP_USD%2CUSD_JPY%2CEUR_JPY";
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);  //Disable SSL
@@ -97,12 +98,12 @@ class MainController extends Controller
             array_push($tempResult,$tempInstrument,$tempSell,$tempBuy);
             array_push($tempData,$tempResult);
         }
- 
+
         return view('trade.index',[
             'instrument' => $instrument,
             'data' => $data,
             'account' => $account,
-            'tempData' => $tempData
+            'tempData' => $tempData,
         ]); 
     }
 
@@ -118,7 +119,6 @@ class MainController extends Controller
         $ticketID = "";
         $responseMessage = "";
         $orderType = "";
-
         $remainingUnit = $request->orderObject['unit'];
         $userLeverage = intval($request->orderObject['leverage']);
         $orderType = ($request->orderObject['type']=="sell") ? "Short" : "Long";
@@ -383,17 +383,30 @@ class MainController extends Controller
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
-        $data = "";        
+        // $data = "";        
         $parseResponse = json_decode($response,true);
 
+        // foreach($parseResponse['candles'] as $pResponse)
+        // {
+        //     $tempDate = substr($pResponse['time'],0,-7);
+        //     $tempDate = $tempDate."Z";
+        //     $myDate = strtotime($tempDate);
+        //     $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
+        //     $data = $data . $tempResult;
+        // }
+        $data = "";
         foreach($parseResponse['candles'] as $pResponse)
         {
             $tempDate = substr($pResponse['time'],0,-7);
             $tempDate = $tempDate."Z";
             $myDate = strtotime($tempDate);
-            $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."\n";
+            if($data=="")
+                $tempResult = $myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."";
+            else
+                $tempResult = ",".$myDate."000" .",". ($pResponse['mid']['o']). ",". ($pResponse['mid']['h']). ",". ($pResponse['mid']['l']). ",". ($pResponse['mid']['c']).",".$pResponse['volume']."";
             $data = $data . $tempResult;
         }
+
         $instrument = $parseResponse['instrument'];
         return response()->json(array('response'=> $data,'instrument'=> $instrument),200);
     }

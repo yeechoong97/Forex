@@ -283,7 +283,16 @@ function changeChartSeries(chartSeries, data) {
     }
     plot.removeSeriesAt(removePlotIndex);
     dataTable.remove();
-    dataTable.addData(data.response);
+    var chartData = [];
+    var tempChartData = data.response;
+    var tempChartArray = tempChartData.split(",");
+    for (var i = 0; i < tempChartArray.length; i++) {
+        resultArray = [tempChartArray[i], parseFloat(tempChartArray[i + 1]), parseFloat(tempChartArray[i + 2]), parseFloat(tempChartArray[i + 3]), parseFloat(tempChartArray[i + 4]), parseInt(tempChartArray[i + 5])];
+        chartData.push(resultArray);
+        i += 5;
+    }
+
+    dataTable.addData(chartData);
     mapping = (chartSeries == "candlestick" || chartSeries == "ohlc") ? dataTable.mapAs({ open: 1, high: 2, low: 3, close: 4 }) : mapping = dataTable.mapAs({ value: 1 });
 
     switch (chartSeries) {

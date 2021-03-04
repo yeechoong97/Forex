@@ -52,7 +52,7 @@ Route::put('forum/update','ForumController@update')->name("forum-update");
 Route::get('forum/{tag}/{id}/destroy','ForumController@destroy')->name("forum-destroy");
 
 Route::post('forum/{id}','ForumController@store_comment')->name("comment-store");
-Route::put('forum/comment/update','ForumController@update_comment')->name('comment-update');
+Route::put('comment/update','ForumController@update_comment')->name('comment-update');
 Route::get('forum/comment/destroy/{id}/{tag}','ForumController@destroy_comment')->name('comment-destroy');
 Route::patch('forum/fetch','ForumController@fetchForums');
 

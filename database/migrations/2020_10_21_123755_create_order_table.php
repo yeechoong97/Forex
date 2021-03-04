@@ -25,12 +25,12 @@ class CreateOrderTable extends Migration
             $table->integer('status')->default(0);
             $table->timestamps();
 
-            $table->foreign('user_id')->references('user_id')->on('accounts');
+            // $table->foreign('user_id')->references('user_id')->on('accounts');
 
         });
 
         
-        DB::statement('ALTER Table orders add id INTEGER NOT NULL UNIQUE AUTO_INCREMENT FIRST;');
+        // DB::statement('ALTER Table orders add id INTEGER NOT NULL UNIQUE AUTO_INCREMENT FIRST;');
     }
 
     /**
